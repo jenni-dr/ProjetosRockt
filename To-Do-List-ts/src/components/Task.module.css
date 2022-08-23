@@ -1,0 +1,85 @@
+
+ .taskItem {
+    display: flex;
+    align-items: flex-start;
+    background: var(--gray-400);
+    gap: 0.75rem;
+    border: 1px solid #333333;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .taskItem:not(:first-child) {
+    margin-top: 0.75rem;
+  }
+  
+  .taskItemToggle,
+  .taskItemToggleSelected {
+    grid-area: toggle;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    border-radius: 999px;
+  }
+  
+  .taskItemToggle {
+    border: 2px solid var(--blue-300);
+    background: none;
+  }
+  
+  .taskItemToggleSelected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-100);
+    border: 3px solid var(--purple-300);
+    background: var(--purple-300);
+  }
+  
+  .taskItemText,
+  .taskItemTextSelected {
+    grid-area: text;
+    margin-left:0.5rem;
+    width: 90%;
+    text-align: justify;
+    color: var(--gray-100);
+  }
+  
+  .taskItemTextSelected {
+    text-decoration-line: line-through;
+    color: var(--gray-300);
+  }
+  
+  .taskItemDeleteButton {
+    grid-area: delete;
+    display: flex;
+    background-color: transparent;
+    border: 0;
+    color: var(--gray-300);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .taskItemDeleteButton:hover {
+    color: var(--red-300);
+  }
+  
+  @media (max-width: 600px) {
+    .taskItem {
+      display: grid;
+      grid-template-areas:
+        "toggle delete"
+        "text text";
+      grid-template-columns: fit-content fit-content;
+      grid-template-rows: fit-content fit-content;
+      place-items: center;
+    }
+    .taskItemText,
+    .taskItemTextSelected {
+      border-top: 1px solid var(--gray-300);
+      padding-top: 10px;
+      width: 100%;
+      text-align: center;
+    }
+  }
